@@ -44,6 +44,7 @@ parser.add_argument("-s", "--search",  metavar='NUMBER',
 parser.add_argument("-v", "--version", action="store_true",
                     help="print the version of the package")
 parser.add_argument("-n", "--name", action="store_true", help="print's name")
+parser.add_argument("-e", "--email", action="store_true", help="print's email")
 parser.add_argument("-i", "--installationId",
                     action="store_true", help="print's installationId output")
 parser.add_argument("--json", action="store_true",
@@ -133,14 +134,14 @@ def truecallerpy_search_phonenumber(config):
 
         # print(jsonInfo["data"])
 
-        if jsonInfo["data"] == None and config["json"] == False and config["raw"] == False:
+        if jsonInfo["data"] == None and config["json"] == False and config["raw"] == False and config["email"] == False:
             raise SystemExit(
                 '\x1b[33mYour previous login was expired. \nPlease login to your account\x1b[0m')
-        elif jsonInfo["data"] == None and config["json"] == True and config["raw"] == False:
+        elif jsonInfo["data"] == None and config["json"] == True and config["raw"] == False and config["email"] == False:
             print(json.dumps(jsonInfo, indent=3))
-        elif config["raw"] == True and config["name"] == False:
+        elif config["raw"] == True and config["name"] == False and config["email"] == False:
             print(jsonInfo)
-        elif jsonInfo["data"] != None and config["json"] == False and config["raw"] == True and config["name"] == True:
+        elif jsonInfo["data"] != None and config["json"] == False and config["raw"] == True and config["name"] == True and config["email"] == False:
             try:
                 if "name" in jsonInfo["data"][0]:
                     name = jsonInfo["data"][0]["name"]
@@ -151,7 +152,7 @@ def truecallerpy_search_phonenumber(config):
             except OSError as error:
                 raise SystemExit(error)
 
-        elif jsonInfo["data"] != None and config["json"] == False and config["raw"] == False and config["name"] == True:
+        elif jsonInfo["data"] != None and config["json"] == False and config["raw"] == False and config["name"] == True and config["email"] == False:
             try:
                 if "name" in jsonInfo["data"][0]:
                     name = jsonInfo["data"][0]["name"]
@@ -161,8 +162,34 @@ def truecallerpy_search_phonenumber(config):
                 print("\x1b[33mName\x1b[0m : \x1b[32m {} \x1b[0m".format(name))
             except OSError as error:
                 raise SystemExit(error)
-        else:
+
+        elif jsonInfo["data"] != None and config["json"] == False and config["raw"] == True and config["name"] == False and config["email"] == True:
+            try:
+                if "id" in jsonInfo["data"][0]["internetAddresses"][0]:
+                    email = jsonInfo["data"][0]["internetAddresses"][0]["id"]
+                else:
+                    email = "Email not found"
+
+                print(email)
+            except OSError as error:
+                raise SystemExit(error)
+
+        elif jsonInfo["data"] != None and config["json"] == False and config["raw"] == False and config["name"] == False and config["email"] == True:
+            try:
+                if "id" in jsonInfo["data"][0]["internetAddresses"][0]:
+                    email = jsonInfo["data"][0]["internetAddresses"][0]["id"]
+                else:
+                    email = "Email not found"
+
+                print("\x1b[33memail\x1b[0m : \x1b[32m {} \x1b[0m".format(email))
+            except OSError as error:
+                raise SystemExit(error)
+
+
+        else:       
             print(json.dumps(jsonInfo, indent=3))
+
+  
 
 
 def truecallerpy_get_installationId(config):
