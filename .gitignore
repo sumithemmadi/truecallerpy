@@ -1,0 +1,11 @@
+truecallerpy-venv
+
+truecallerpy/__pycache__
+
+build
+
+dist
+
+truecallerpy.egg-info
+
+./bott.json
