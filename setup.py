@@ -28,7 +28,7 @@ from os.path import abspath, dirname, join , expanduser
 
 from setuptools import Command, find_packages, setup
 
-version = "0.0.11"
+version = "0.0.12"
 
 this_dir = abspath(dirname(__file__))
 with open(join(this_dir, 'README.md'), encoding='utf-8') as file:
@@ -43,8 +43,8 @@ setup(
     url = 'https://github.com/sumithemmadi/truecallerpy',
     author = 'Sumith Emmadi',
     author_email = 'sumithemmadi244@gmail.com',
-    maintainer = "Sumith Emmadi,Shrikant Bache",
-    maintainer_email = "sumithemmadi244@gmail.com , bacheshrikant@gmail.com",
+    maintainer = "Sumith Emmadi",
+    maintainer_email = "sumithemmadi244@gmail.com",
     license = 'MIT',
     license_file = "LICENSE",
     platforms = "any",
