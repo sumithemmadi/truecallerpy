@@ -141,7 +141,7 @@ def truecallerpy_search_phonenumber(config):
             phoneNumberNational), phonenumbers.region_code_for_number(number), installationId)
 
         # print(jsonInfo["data"])
-        if jsonInfo["data"] == None and jsonInfo["errorCode"] == 429:
+        if jsonInfo["data"] == None and jsonInfo["errorCode"] == 429 and config['json'] == False:
             raise SystemExit(
                 '\x1b[33mToo many requests. \nPlease try again tomorrow, maybe!\x1b[0m')
         elif jsonInfo["data"] == None and config["json"] == False and config["raw"] == False and config["email"] == False:
