@@ -22,9 +22,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #====================================================================================
+from codecs import open
+from os.path import abspath, dirname, join
 
 def truecallerpy_info():
-    version = "0.0.12"
+    this_dir = abspath(dirname(__file__))
+    
+    with open(join(this_dir,"version.txt"), encoding='utf-8') as versionFile:
+        version = versionFile.read()
     data = '''
     truecallerpy
     Version     : {}
@@ -35,3 +40,5 @@ def truecallerpy_info():
     License     : MIT
     '''.format(version)
     return data
+
+# print(truecallerpy_info())

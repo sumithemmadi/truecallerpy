@@ -28,9 +28,11 @@ from os.path import abspath, dirname, join , expanduser
 
 from setuptools import Command, find_packages, setup
 
-version = "0.0.12"
-
 this_dir = abspath(dirname(__file__))
+
+with open(join(this_dir, "truecallerpy","version.txt"), encoding='utf-8') as versionFile:
+    version = versionFile.read()
+
 with open(join(this_dir, 'README.md'), encoding='utf-8') as file:
     long_description = file.read()
 
