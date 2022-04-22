@@ -102,7 +102,15 @@ def search_phonenumber(phoneNumber, regionCode, installationId):
     try:
         req = requests.get(
             'https://search5-noneu.truecaller.com/v2/search', headers=headers, params=params)
-        if req.json().get('status'):
+        #print(req.status_code, req.text)
+        if req.status_code == 429:
+            x = {
+                "errorCode": 429,
+                "errorMessage": "too many requests.",
+                "data": None
+            }
+            return x
+        elif req.json().get('status'):
             x = {
                 "errorMessage": "Your previous login was expired.",
                 "data": None
@@ -133,8 +141,10 @@ def truecallerpy_search_phonenumber(config):
             phoneNumberNational), phonenumbers.region_code_for_number(number), installationId)
 
         # print(jsonInfo["data"])
-
-        if jsonInfo["data"] == None and config["json"] == False and config["raw"] == False and config["email"] == False:
+        if jsonInfo["data"] == None and jsonInfo["errorCode"] == 429:
+            raise SystemExit(
+                '\x1b[33mToo many requests. \nPlease try again tomorrow, maybe!\x1b[0m')
+        elif jsonInfo["data"] == None and config["json"] == False and config["raw"] == False and config["email"] == False:
             raise SystemExit(
                 '\x1b[33mYour previous login was expired. \nPlease login to your account\x1b[0m')
         elif jsonInfo["data"] == None and config["json"] == True and config["raw"] == False and config["email"] == False:
