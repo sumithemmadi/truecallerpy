@@ -30,6 +30,9 @@ venv:
 install:
 	pip install -r requirements.txt              
 
+install-dev:
+	pip install -r requirements-dev.txt              
+
 build:
 	python3 -m pip install --upgrade build
 	python3 -m build
