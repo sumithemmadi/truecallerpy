@@ -135,6 +135,7 @@ To get raw output.
 "internetAddresses":[{"id":"email@gmail.com","service":"email","caption":"Sumith Emmadi","type":"internetAddress"}],"badges":["verified","user"],"cacheTtl":"","sources":[],"searchWarnings":[],"surveys":[]}],"provider":"ss-nu","stats":{"sourceStats":[]}}
 ```
 
+
 To print only name.
 
 ```bash
@@ -178,8 +179,20 @@ username@email.com
 "internetAddresses":[{"id":"email@gmail.com","service":"email","caption":"Sumith Emmadi","type":"internetAddress"}],"badges":["verified","user"],"cacheTtl":"","sources":[],"searchWarnings":[],"surveys":[]}],"provider":"ss-nu","stats":{"sourceStats":[]}}
 ```
 
+### To make a bulk search 
+
+```
+~$ truecallerjs --bs [Numbers seperated by comma]
+```
+
+```
+Example : 
+ ~$ truecallerjs --bs 9912345678,+14051234567,+919987654321
+```
+
 
 ## Usage 
+
 ```python
 from truecallerpy import search_phonenumber
 
@@ -197,6 +210,23 @@ search_phonenumber("9912345678","IN", id)
 * **PHONE_NUMBER** : Number you want to search.
 * **COUNTRY_CODE** : Country code you want to use by default . If mobile number is not in **E164**(International Format) Format then **COUNTRY_CODE** will be considered as a country code of that Mobile Number.
 * **INSTALLATION_ID** : To know your InstallationId , install the package globally.
+
+## Bulk search
+
+
+```python
+from truecallerpy import search_phonenumber,bulk_search
+
+id = "your installation id"
+# To know your installation id run `truecallerpy -i` on terminal or command prompt
+
+# bulk_search( "DATA","COUNTRY_CODE","INSTALLATION_ID") 
+
+data = "9912345678,+14051234567,+919987654321" # phone numbers seperated by commas
+
+bulk_search(data,"IN", id)
+```
+* **DATA** : Numbers seperated by commas.
 
 ## License
 
@@ -221,6 +251,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsumithemmadi%2Ftruecallerpy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsumithemmadi%2Ftruecallerpy?ref=badge_large)
