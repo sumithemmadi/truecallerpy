@@ -182,12 +182,12 @@ username@email.com
 ### To make a bulk search 
 
 ```
-~$ truecallerjs --bs [Numbers seperated by comma]
+~$ truecallerpy --bs [Numbers seperated by comma]
 ```
 
 ```
 Example : 
- ~$ truecallerjs --bs 9912345678,+14051234567,+919987654321
+ ~$ truecallerpy --bs 9912345678,+14051234567,+919987654321
 ```
 
 
