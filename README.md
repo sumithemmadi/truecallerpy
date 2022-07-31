@@ -6,7 +6,7 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/truecallerpy?style=flat-square)](https://pypi.org/project/truecallerpy)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/truecallerpy?style=flat-square)](https://pypistats.org/packages/truecallerpy)
 [![PyPI - License](https://img.shields.io/pypi/l/truecallerpy?style=flat-square)](https://github.com/sumithemmadi/truecallerpy/edit/main/LICENSE.md)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsumithemmadi%2Ftruecallerpy.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsumithemmadi%2Ftruecallerpy?ref=badge_shield)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsumithemmadi%2Ftruecallerpy.svg?type=shield)]
 
 
 <p>A  package to search phone number details.</p>
