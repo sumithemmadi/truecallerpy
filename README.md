@@ -1,6 +1,4 @@
-<h1 id="truecallerpy">
-    <a href="https://github.com/sumithemmadi/truecallerpy">Truecallerpy</a>
-</h1>
+# [Truecallerpy](https://github.com/sumithemmadi/truecallerpy)
 
 [![PyPI - Implementation](https://img.shields.io/pypi/v/truecallerpy?style=flat-square)](https://pypi.org/project/truecallerpy)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/truecallerpy?style=flat-square)](https://pypi.org/project/truecallerpy)
@@ -8,7 +6,7 @@
 [![PyPI - License](https://img.shields.io/pypi/l/truecallerpy?style=flat-square)](https://github.com/sumithemmadi/truecallerpy/edit/main/LICENSE.md)
 
 
-<p>A  package to search phone number details.</p>
+- A  package to search phone number details.</p>
 
 
 # Requirements
