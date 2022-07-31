@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "truecallerpy"
+version = "0.1.0"
+description = "A package to find phone number details"
+authors = ["sumithemmadi <sumithemmadi244@gmail.com>"]
+maintainers = ["sumithemmadi <sumithemmadi244@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/sumithemmadi/truecallerpy.git"
+repository = "https://github.com/sumithemmadi/truecallerpy.git"
+documentation = "https://github.com/sumithemmadi/truecallerpy.git"
+keywords = [
+    'truecallerpy',
+    'truecaller',
+    'search',
+    'number',
+    'phone',
+    'find',
+    'email',
+    'phonenumber',
+    'numbers',
+    'address',
+    'force',
+    'attack',
+    'spy',
+]
+
+classifiers = [
+    'Topic :: Utilities',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+]
+
+include = ["README.md", "LICENSE"]
+exclude = ["tests"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+phonenumbers = "^8.12.52"
+requests = "^2.28.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+truecallerpy = "truecallerpy.app:ExecuteTrurcallerPy"
+
+[tool.black]
+line-length = 100
+
