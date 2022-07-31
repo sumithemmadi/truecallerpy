@@ -116,6 +116,7 @@ def search_phonenumber(phoneNumber, regionCode, installationId):
             return x
         elif req.json().get('status'):
             x = {
+                "errorCode": 401,
                 "errorMessage": "Your previous login was expired.",
                 "data": None
             }
@@ -156,6 +157,7 @@ def bulk_search(data, regionCode, installationId):
             return x
         elif req.json().get('status'):
             x = {
+                "errorCode": 401,
                 "errorMessage": "Your previous login was expired.",
                 "data": None
             }
@@ -185,13 +187,14 @@ def truecallerpy_search_phonenumber(config):
             phoneNumberNational), phonenumbers.region_code_for_number(number), installationId)
 
         # print(jsonInfo["data"])
-        if jsonInfo["data"] == None and jsonInfo["errorCode"] == 429 and config['json'] == False:
-            raise SystemExit(
-                '\x1b[33mToo many requests. \nPlease try again tomorrow, maybe!\x1b[0m')
-        elif jsonInfo["data"] == None and config["json"] == False and config["raw"] == False and config["email"] == False:
-            raise SystemExit(
-                '\x1b[33mYour previous login was expired. \nPlease login to your account\x1b[0m')
-        elif jsonInfo["data"] == None and config["json"] == True and config["raw"] == False and config["email"] == False:
+        if jsonInfo["data"] == None and config["json"] == False:
+            if jsonInfo["errorCode"] == 429:
+                raise SystemExit(
+                    '\x1b[33mToo many requests. \nPlease try again tomorrow, maybe!\x1b[0m')
+            else:
+                raise SystemExit(
+                    '\x1b[33mYour previous login was expired. \nPlease login to your account\x1b[0m')
+        elif jsonInfo["data"] == None and config["json"] == True and config["raw"] == False:
             print(json.dumps(jsonInfo, indent=3))
         elif config["raw"] == True and config["name"] == False and config["email"] == False:
             print(jsonInfo)
@@ -201,7 +204,6 @@ def truecallerpy_search_phonenumber(config):
                     name = jsonInfo["data"][0]["name"]
                 else:
                     name = "Unknown number"
-
                 print(name)
             except OSError as error:
                 raise SystemExit(error)
@@ -254,13 +256,13 @@ def truecallerpy_bulksearch(config):
             config["bs"], authenticationJson["phones"][0]["countryCode"], installationId)
 
         # print(xdata)
-
-        if jsonInfo["data"] == None and jsonInfo["errorCode"] == 429 and config['json'] == False:
-            raise SystemExit(
-                '\x1b[33mToo many requests. \nPlease try again tomorrow, maybe!\x1b[0m')
-        elif jsonInfo["data"] == None and config["json"] == False and config["raw"] == False and config["email"] == False:
-            raise SystemExit(
-                '\x1b[33mYour previous login was expired. \nPlease login to your account\x1b[0m')
+        if jsonInfo["data"] == None and config["json"] == False:
+            if jsonInfo["errorCode"] == 429:
+                raise SystemExit(
+                    '\x1b[33mToo many requests. \nPlease try again tomorrow, maybe!\x1b[0m')
+            else:
+                raise SystemExit(
+                    '\x1b[33mYour previous login was expired. \nPlease login to your account\x1b[0m')
         elif jsonInfo["data"] == None and config["json"] == True and config["raw"] == False and config["email"] == False:
             print(json.dumps(jsonInfo, indent=3))
         elif config["raw"] == True and config["name"] == False and config["email"] == False:
