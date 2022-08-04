@@ -90,19 +90,19 @@ def search_phonenumber(phoneNumber, regionCode, installationId):
         phNumber, phonenumbers.PhoneNumberFormat.NATIONAL)
 
     params = {
-        'q': getNumber(nationalPhoneNumber),
-        'countryCode': "{}".format(phonenumbers.region_code_for_number(phNumber)),
-        'type': '4',
-        'locAddr': '',
-        'placement': 'SEARCHRESULTS,HISTORY,DETAILS',
-        'encoding': 'json'
+        "q": getNumber(nationalPhoneNumber),
+        "countryCode": "{}".format(phonenumbers.region_code_for_number(phNumber)),
+        "type": "4",
+        "locAddr": "",
+        "placement": "SEARCHRESULTS,HISTORY,DETAILS",
+        "encoding": "json"
     }
     headers = {
-        'content-type': 'application/json; charset=UTF-8',
-        'accept-encoding': 'gzip',
-        'user-agent': 'Truecaller/11.75.5 (Android;10)',
-        'clientsecret': 'lvc22mp3l1sfv6ujg83rd17btt',
-        'authorization': 'Bearer ' + installationId}
+        "content-type": "application/json; charset=UTF-8",
+        "accept-encoding": "gzip",
+        "user-agent": "Truecaller/11.75.5 (Android;10)",
+        "clientsecret": "lvc22mp3l1sfv6ujg83rd17btt",
+        "authorization": "Bearer " + installationId}
     try:
         req = requests.get(
             'https://search5-noneu.truecaller.com/v2/search', headers=headers, params=params)
@@ -130,18 +130,18 @@ def search_phonenumber(phoneNumber, regionCode, installationId):
 def bulk_search(data, regionCode, installationId):
 
     params = {
-        'q': data,
-        'countryCode': regionCode,
-        'type': 14,
-        'placement': "SEARCHRESULTS,HISTORY,DETAILS",
-        'encoding': "json"
+        "q": data,
+        "countryCode": regionCode,
+        "type": 14,
+        "placement": "SEARCHRESULTS,HISTORY,DETAILS",
+        "encoding": "json"
     }
     headers = {
-        'content-type': 'application/json; charset=UTF-8',
-        'accept-encoding': 'gzip',
-        'user-agent': 'Truecaller/11.75.5 (Android;10)',
-        'clientsecret': 'lvc22mp3l1sfv6ujg83rd17btt',
-        'authorization': 'Bearer ' + installationId
+        "content-type": "application/json; charset=UTF-8",
+        "accept-encoding": "gzip",
+        "user-agent": "Truecaller/11.75.5 (Android;10)",
+        "clientsecret": "lvc22mp3l1sfv6ujg83rd17btt",
+        "authorization": "Bearer " + installationId
     }
 
     try:
