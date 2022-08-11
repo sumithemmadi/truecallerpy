@@ -2,7 +2,7 @@
 
 [![PyPI - Implementation](https://img.shields.io/pypi/v/truecallerpy?style=flat-square)](https://pypi.org/project/truecallerpy)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/truecallerpy?style=flat-square)](https://pypi.org/project/truecallerpy)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/truecallerpy?style=flat-square)](https://pypistats.org/packages/truecallerpy)
+[![Downloads](https://pepy.tech/badge/truecallerpy)](https://pepy.tech/project/truecallerpy)
 [![PyPI - License](https://img.shields.io/pypi/l/truecallerpy?style=flat-square)](https://github.com/sumithemmadi/truecallerpy/edit/main/LICENSE.md)
 
 
