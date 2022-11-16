@@ -123,7 +123,7 @@ def truecallerpy_login(config):
                 raise SystemExit(
                     "Unable to delete file\n Delete '{}' this file and try again".format(r_path))
         else:
-            if '+{}'.format(req_file['parsedPhoneNumber']) == getNumber(number):
+            if "parsedPhoneNumber" in req_file and '+{}'.format(req_file['parsedPhoneNumber']) == getNumber(number):
                 print("\n\nPrevious request was found for this mobile number.\n")
                 x = input("Do you want to enter previous OTP (y/n): ")
                 x_status = True
@@ -139,7 +139,8 @@ def truecallerpy_login(config):
                             raise SystemExit(
                                 "Unable to delete file\n Delete '{}' this file and try again".format(r_path))
                         try:
-                            postRequest = requests.post('https://account-asia-south1.truecaller.com/v2/sendOnboardingOtp', headers=headers, json=data)
+                            postRequest = requests.post(
+                                'https://account-asia-south1.truecaller.com/v2/sendOnboardingOtp', headers=headers, json=data)
                         except requests.exceptions.RequestException as e:
                             raise SystemExit(e)
                         requestFile = open(r_path, "w")
@@ -235,7 +236,8 @@ def truecallerpy_login_with_file(config):
         raise SystemExit(
             "Login failed! \nDirectory '%s' can not be created" % directory)
     if os.path.exists(config['file']) == False:
-         raise SystemExit("FileNotFoundError: [Errno 2] No such file or directory: {}".format(config['file']))
+        raise SystemExit(
+            "FileNotFoundError: [Errno 2] No such file or directory: {}".format(config['file']))
     try:
         with open(config['file']) as loginJsonFile:
             jsonFileData = json.load(loginJsonFile)

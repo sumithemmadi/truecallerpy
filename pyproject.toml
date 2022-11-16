@@ -23,7 +23,7 @@
 
 [tool.poetry]
 name = "truecallerpy"
-version = "0.1.1"
+version = "0.1.2"
 description = "A package to find phone number details"
 authors = ["sumithemmadi <sumithemmadi244@gmail.com>"]
 maintainers = ["sumithemmadi <sumithemmadi244@gmail.com>"]
