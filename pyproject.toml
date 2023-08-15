@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "truecallerpy"
+version = "1.0.2"
+description = "TruecallerPy is a Python package that provides functionalities to interact with the Truecaller API. It allows you to perform login, OTP verification, and phone number search using Truecaller."
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = [
+    "truecallerpy",
+    "truecaller",
+    "search",
+    "phone",
+    "number",
+    "phonenumber",
+    "information",
+    "mobile",
+]
+authors = [{ name = "Sumith Emmadi", email = "sumithemmadi244@gmail.com" }]
+maintainers = [{ name = "Sumith Emmadi", email = "sumithemmadi244@gmail.com" }]
+
+classifiers = [
+    "Topic :: Utilities",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = ["httpx", "phonenumbers", "questionary", "colorama"]
+
+[project.urls]
+Homepage = "https://github.com/sumithemmadi/truecallerpy"
+Documentation = "https://github.com/sumithemmadi/truecallerpy"
+Repository = "https://github.com/sumithemmadi/truecallerpy"
+Changelog = "https://github.com/sumithemmadi/truecallerpy"
+"Bug Tracker" = "https://github.com/sumithemmadi/truecallerpy/issues"
+
+[project.scripts]
+truecallerpy = "truecallerpy.cli:main"
