@@ -79,7 +79,7 @@ async def bulk_search(phoneNumbers, countryCode, installationId):
         "Authorization": f"Bearer {installationId}"
     }
     params = {
-        "q": ",".join(phoneNumbers),
+        "q": str(phoneNumbers),
         "countryCode": countryCode,
         "type": 14,
         "placement": "SEARCHRESULTS,HISTORY,DETAILS",

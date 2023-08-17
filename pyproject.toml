@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "truecallerpy"
-version = "1.0.2"
+version = "1.0.3"
 description = "TruecallerPy is a Python package that provides functionalities to interact with the Truecaller API. It allows you to perform login, OTP verification, and phone number search using Truecaller."
 readme = "README.md"
 license = { file = "LICENSE" }
